@@ -1,0 +1,23 @@
+{
+  "name": "sl_colors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-imagemin": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zabadan/sl_colors.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zabadan/sl_colors/issues"
+  },
+  "homepage": "https://github.com/zabadan/sl_colors#readme"
+}
