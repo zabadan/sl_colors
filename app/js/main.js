@@ -1,19 +1,17 @@
 $(document).ready(function(){
 	var mode = 0,
 		mode_txt,
-		primary_color_hsl;
+		primary_color_hsl,
+		delivery_color_hsl;
 	
 	$('#amount-range').on('propertychange input', f_chanhaRange);
 	$(':input').on('propertychange input', f_setStyleMode);
+	
+	//$('#derivate_color').on('propertychange input', f_setStyleMode);
+	
 	$('#mode_color').on('change', f_setStyleMode);
 
-	$('#copy_text').on('click', f_copyTextToClopboard)
-
-	// var button = document.getElementById('copy_text');
-	// button.addEventListener('click', function (e) {
-	// 	e.preventDefault();
-	// 	document.execCommand('copy', false, document.getElementById('textarea').select());
-	// });
+	$('#copy_text').on('click', f_copyTextToClopboard);
 
 });
 
@@ -30,6 +28,7 @@ function f_chanhaRange() {
 function update(picker){	
 	document.getElementById('output_primary_color').style.backgroundColor = 'rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')';
 	primary_color_hsl = rgbToHsl( Math.floor(picker.rgb[0]) , Math.floor(picker.rgb[1]), Math.floor(picker.rgb[2]) );
+	console.log('primary_color_hsl = ' + primary_color_hsl);
 	f_setStyleMode()
 }
 

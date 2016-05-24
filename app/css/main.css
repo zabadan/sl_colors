@@ -125,7 +125,8 @@ header .a-line {
 
 .date-input #amount_num {
   width: 35px;
-  padding: 2px; }
+  padding: 2px;
+  text-align: center; }
 
 #output_primary_color,
 #output_derivate_color,
@@ -147,7 +148,6 @@ header .a-line {
 .date-output p {
   margin-top: 10px;
   font-weight: 600; }
-<<<<<<< HEAD
 
 .test_color_primary,
 .test_color_delivery {
@@ -159,6 +159,8 @@ header .a-line {
   background: #0D3298; }
 
 .test_color_delivery {
-  background: #acc0f8; }
-=======
->>>>>>> 60c0efd51e9c4271a396c74cb37c9681801184ab
+  background: #acc0f8;
+  font-weight: 600; }
+
+.thumb {
+  display: none; }

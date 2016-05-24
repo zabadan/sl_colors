@@ -2,31 +2,116 @@
 <html lang="ru">
 
 <head>
-    <meta charset="utf-8">
-    <title>Заголовок</title>
-    <meta name="description" content="">
-    <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<title>Calculation colors of css preprocessors</title>
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="stylesheet" href="css/vendor.css">
+	<link rel="stylesheet" href="css/vendor.min.css">
 
-    <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/main.min.css">
 
 </head>
 
 <body>
+	<div class="container">
 
-	<h1>hello</h1>
+		<header>
+			<div class="row">
+				<div class="col s12 l12 center-align">
+					<img src="img/sass-less.png" alt="logo">
+					<h1>Color Generator</h1>
+					<h2>
+						calculation colors of
+						<span>css preprocessors</span>
+						for web developers
+					</h2>
+					<div class="a-line"></div>
+					<h3>Darken/Lighten</h3>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="row">
+				<div class="col m12 s6 l6 right-align">
+					<div class="date-input center-align">
+						<h4>Input date</h4>
+						<div class="left-align">
+							<label for="primary_color">
+								<p>Color</p>
+								<input id="primary_color" class="color-input jscolor {onFineChange:'update(this)', hash:true}"></label>
+							<label for="name_primary_color">
+								<p>Name primary color</p>
+								<input type="text" class="color-input" value="primary_color" id="name_primary_color"></label>
+							<label for="name_delivery_color">
+								<p>Name derivarive color</p>
+								<input type="text" class="color-input" value="derivarive_color" id="name_delivery_color"></label>
+						<h4>Find color</h4>
+							<div class="switch" >
+								<label>
+									<span class="mode">Darken</span>
+									<input type="checkbox" id="mode_color">
+									<span class="lever"></span>
+									<span class="mode right-align">Lighten</span>
+								</label>
+							</div>
+							<label id="amount_label" for="amount_num">
+								<p class="p__short">Amount</p>
+								<input type="range" id="amount-range" min="0" max="100" />
+								<input type="number" class="color-input" min="0" max="100" id="amount_num" value='50' disabled/>
+							</label>
+						</div>
 
-    <div class="loader">
-        <div class="loader_inner"></div>
-    </div>
-    
-<script src="scripts/vendor.js"></script>
+						<h4>Find amount</h4>
+						<div class="left-align">
 
-<script src="scripts/main.js"></script>
+							<label for="derivate_color">
+								<p>Derivate color</p>
+								<input id="derivate_color" class="color-input jscolor {hash:true, styleElement:'output_derivate_color'}"></label>
+							<label for="" class="left">
+								<p class="p__shorter">Mode</p>
+								<input type="text" class="color-input color-input__short" value="darken " disabled></label>
+							<label for="" class="right">
+								<p class="p__shorter">Amount</p>
+								<input type="number" class="color-input color-input__short" value="30" disabled></label>
+						</div>
+						<button class="btn waves-effect waves-light" type="reset" name="action">Rerset</button>
+					</div>
+				</div>
+				<div class="col m12 s6 l6 left-align">
+					<div class="date-output">
+						<p>Primary color</p>
+						<div id="output_primary_color"></div>
+						<p>Derivate color</p>
+						<div id="output_derivate_color"></div>
+						<p>Sass style</p>
 
+						<textarea id="textarea" readonly></textarea>
+
+						<div class="center-align">
+							<button class="btn waves-effect waves-light center-align"   id="copy_text" name="action">Copy text</button>
+						</div>
+
+
+					</div>
+
+				</div>
+			</div>
+		</main>
+		<footer>
+<!-- 			<div class="test_color">
+				<div class="test_color_primary"></div>
+				<div class="test_color_delivery"></div>
+			</div> -->
+		</footer>
+	</div>
+
+	<script src="scripts/vendor.min.js"></script>
+
+	<script src="scripts/main.min.js"></script>
+	
 </body>
 
 </html>

@@ -45,7 +45,7 @@
 			<div class="row">
 				<div class="col m12 s6 l6 right-align">
 					<div class="date-input center-align">
-						<h4>Find color</h4>
+						<h4>Input date</h4>
 						<div class="left-align">
 							<label for="primary_color">
 								<p>Color</p>
@@ -56,7 +56,7 @@
 							<label for="name_delivery_color">
 								<p>Name derivarive color</p>
 								<input type="text" class="color-input" value="derivarive_color" id="name_delivery_color"></label>
-
+						<h4>Find color</h4>
 							<div class="switch" >
 								<label>
 									<span class="mode">Darken</span>
@@ -68,15 +68,13 @@
 							<label id="amount_label" for="amount_num">
 								<p class="p__short">Amount</p>
 								<input type="range" id="amount-range" min="0" max="100" />
-								<input type="number" class="color-input" min="0" max="100" id="amount_num" value='50' disabled/>
+								<input type="text" class="color-input" min="0" max="100" id="amount_num" value='50' disabled/>
 							</label>
 						</div>
 
 						<h4>Find amount</h4>
 						<div class="left-align">
-							<label for="primary_color">
-								<p>Primary color</p>
-								<input id="primary_color" class="color-input jscolor {onFineChange:'update(this)', hash:true, styleElement:'output_primary_color'} "></label>
+
 							<label for="derivate_color">
 								<p>Derivate color</p>
 								<input id="derivate_color" class="color-input jscolor {hash:true, styleElement:'output_derivate_color'}"></label>
@@ -123,29 +121,14 @@
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/Materialize/bin/materialize.js"></script>
 	<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+	<script src="js/jscolor.js"></script>
 	<!-- endbower -->
 	<!-- endbuild -->
 
 	<!-- build:js scripts/main.min.js -->
-	<script src="js/jscolor.js"></script>
-
+	
 	<script src="js/main.js"></script>
 	<!-- endbuild -->
-
-	<script>
-
-	</script>
-	<script>
-// function update(jscolor, picker) {
-//     // 'jscolor' instance can be used as a string
-//     document.getElementById('rect').style.backgroundColor = '#' + jscolor
-
-
-// };
-
-
-
-</script>
 
 </body>
 
