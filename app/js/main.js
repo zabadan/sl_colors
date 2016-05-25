@@ -10,8 +10,7 @@ $(document).ready(function(){
 	$('#amount-range').on('propertychange input', f_chanhaRange);
 	$(':input').on('propertychange input', f_setStyleMode);
 	
-	$('#derivate_color').on('propertychange input', f_setStyleMode);
-	
+	//$('#derivate_color').on('propertychange input', f_setStyleMode);
 	$('#mode_color').on('change', f_setStyleMode);
 
 	$('#copy_text').on('click', f_copyTextToClopboard);
@@ -30,14 +29,15 @@ function f_chanhaRange() {
 
 function update(picker, numblock){	
 	dateG.globalMode = numblock;
+	//debugger;
 	if (dateG.globalMode) {
 		document.getElementById('output_derivate_color').style.backgroundColor = 'rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')';
 		dateG.delivery_color_hsl = rgbToHsl( Math.floor(picker.rgb[0]) , Math.floor(picker.rgb[1]), Math.floor(picker.rgb[2]) );
-		
-} else {
+		console.log('rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')')
+	} else {
 		document.getElementById('output_primary_color').style.backgroundColor = 'rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')';
 		dateG.primary_color_hsl = rgbToHsl( Math.floor(picker.rgb[0]) , Math.floor(picker.rgb[1]), Math.floor(picker.rgb[2]) );
-}
+	};
 	
 	console.log('dateG.primary_color_hsl = ' + dateG.primary_color_hsl);
 	console.log('dateG.delivery_color_hsl = ' + dateG.delivery_color_hsl);
@@ -59,8 +59,7 @@ function f_setDeliveryColor() {
 		derivate_color = $('#derivate_color').val(),
 		primary_color_txt = '$'+ name_primary_color +': ' + primary_color + ';';
 		
-		if (dateG.globalMode) {
-			document.getElementById('output_derivate_color').style.backgroundColor = 'hsl(' + dateG.primary_color_hsl[0] + ',' + dateG.primary_color_hsl[1] + '% ,' + dateG.primary_color_hsl[2] + '% )';
+		if (dateG.globalMode) { /*--------find amount-------------*/
 			if(dateG.primary_color_hsl[0] == dateG.delivery_color_hsl[0] && dateG.primary_color_hsl[1] == dateG.delivery_color_hsl[1]){
 				console.log('related colors!');
 
@@ -74,12 +73,12 @@ function f_setDeliveryColor() {
 				differenceAmount = Math.abs(differenceAmount);
 				$('#outputMode').attr( 'value', dateG.mode_txt );
 				$('#outputAmount').attr( 'value', differenceAmount );
-				
+
 				var delivery_color_txt = '$'+ name_delivery_color +': ' + dateG.mode_txt + '( $' + name_primary_color + ', ' + differenceAmount + ' );';
 			} else{
 				var delivery_color_txt = '$'+ name_delivery_color +': ' + derivate_color + ' ;';
 			};
-		} else {
+		} else { /*----------find color------------*/
 			
 			var delivery_color_txt = '$'+ name_delivery_color +': ' + dateG.mode_txt + '( $' + name_primary_color + ', ' + amount_num + ' );';
 
