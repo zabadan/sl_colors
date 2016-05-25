@@ -49,7 +49,7 @@
 						<div class="left-align">
 							<label for="primary_color">
 								<p>Color</p>
-								<input id="primary_color" class="color-input jscolor {onFineChange:'update(this)', hash:true}"></label>
+								<input id="primary_color" class="color-input jscolor {onFineChange:'update(this, 0)', hash:true}"></label>
 							<label for="name_primary_color">
 								<p>Name primary color</p>
 								<input type="text" class="color-input" value="primary_color" id="name_primary_color"></label>
@@ -77,7 +77,7 @@
 
 							<label for="derivate_color">
 								<p>Derivate color</p>
-								<input id="derivate_color" class="color-input jscolor {hash:true, styleElement:'output_derivate_color'}"></label>
+								<input id="derivate_color" class="color-input jscolor {onFineChange:'update(this, 1)',hash:true, styleElement:'output_derivate_color'}"></label>
 							<label for="" class="left">
 								<p class="p__shorter">Mode</p>
 								<input type="text" class="color-input color-input__short" value="darken " disabled></label>
@@ -126,7 +126,6 @@
 	<!-- endbuild -->
 
 	<!-- build:js scripts/main.min.js -->
-	
 	<script src="js/main.js"></script>
 	<!-- endbuild -->
 

@@ -1,13 +1,16 @@
 $(document).ready(function(){
-	var mode = 0,
-		mode_txt,
-		primary_color_hsl,
-		delivery_color_hsl;
+	dateG = {
+		mode: 0,
+		mode_txt: 'Darken',
+		delivery_color_hsl: [],
+		primary_color_hsl: [0, 0, 100],
+		globalMode: 0
+	};
 	
 	$('#amount-range').on('propertychange input', f_chanhaRange);
 	$(':input').on('propertychange input', f_setStyleMode);
 	
-	//$('#derivate_color').on('propertychange input', f_setStyleMode);
+	$('#derivate_color').on('propertychange input', f_setStyleMode);
 	
 	$('#mode_color').on('change', f_setStyleMode);
 
@@ -25,16 +28,26 @@ function f_chanhaRange() {
 }
 
 
-function update(picker){	
-	document.getElementById('output_primary_color').style.backgroundColor = 'rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')';
-	primary_color_hsl = rgbToHsl( Math.floor(picker.rgb[0]) , Math.floor(picker.rgb[1]), Math.floor(picker.rgb[2]) );
-	console.log('primary_color_hsl = ' + primary_color_hsl);
+function update(picker, numblock){	
+	dateG.globalMode = numblock;
+	if (dateG.globalMode) {
+		document.getElementById('output_derivate_color').style.backgroundColor = 'rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')';
+		dateG.primary_color_hsl = rgbToHsl( Math.floor(picker.rgb[0]) , Math.floor(picker.rgb[1]), Math.floor(picker.rgb[2]) );
+		
+} else {
+		document.getElementById('output_primary_color').style.backgroundColor = 'rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')';
+		dateG.primary_color_hsl = rgbToHsl( Math.floor(picker.rgb[0]) , Math.floor(picker.rgb[1]), Math.floor(picker.rgb[2]) );
+}
+	
+	console.log('dateG.primary_color_hsl = ' + dateG.primary_color_hsl);
+	console.log('dateG.delivery_color_hsl = ' + dateG.delivery_color_hsl);
+	console.log('dateG.globalMode = ' + dateG.globalMode);
 	f_setStyleMode()
 }
 
 function f_setStyleMode() {
-	mode = document.querySelector('#mode_color').checked ? 1 : 0;
-	mode_txt = mode ? 'Lighten' : 'Darken';
+	dateG.mode = document.querySelector('#mode_color').checked ? 1 : 0;
+	dateG.mode_txt = dateG.mode ? 'Lighten' : 'Darken';
 	f_setDeliveryColor();
 }
 
@@ -43,15 +56,21 @@ function f_setDeliveryColor() {
 		name_primary_color = $('#name_primary_color').val(),
 		name_delivery_color = $('#name_delivery_color').val(),
 		amount_num = $('#amount_num').val(),
-		derivate_color = $('#derivate_color').val(),
+		derivate_color = $('#derivate_color').val();
 		
-		primary_color_txt = '$'+ name_primary_color +': ' + primary_color + ';',
-		delivery_color_txt = '$'+ name_delivery_color +': ' + mode_txt + '( $' + name_primary_color + ', ' + amount_num + ' );',
+		if (dateG.globalMode) {
 
-		derivate_color_h = primary_color_hsl[0];
-		derivate_color_s = primary_color_hsl[1];
-		derivate_color_l = mode ? +(amount_num) + +(primary_color_hsl[2])  : primary_color_hsl[2] - amount_num;
+		} else {
+			primary_color_txt = '$'+ name_primary_color +': ' + primary_color + ';',
+			delivery_color_txt = '$'+ name_delivery_color +': ' + dateG.mode_txt + '( $' + name_primary_color + ', ' + amount_num + ' );',
 
+			derivate_color_h = dateG.primary_color_hsl[0];
+			derivate_color_s = dateG.primary_color_hsl[1];
+			derivate_color_l = dateG.mode ? +(amount_num) + +(dateG.primary_color_hsl[2])  : dateG.primary_color_hsl[2] - amount_num;
+
+		}
+
+		
 	document.getElementById('output_derivate_color').style.backgroundColor = 'hsl(' + derivate_color_h + ',' + derivate_color_s + '% ,' + derivate_color_l + '% )';
 	$('#textarea').html(primary_color_txt + '\n'+ delivery_color_txt + '\nderivate_color_l = ' + derivate_color_l);
 
