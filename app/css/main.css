@@ -102,10 +102,6 @@ header .a-line {
     background-color: #9E9E9E;
     left: 26px; }
 
-.date-input #amount_num {
-  color: white;
-  background: #26a69a; }
-
 .date-input input[type=range] {
   width: 190px;
   margin-right: 10px; }
@@ -122,11 +118,14 @@ header .a-line {
     box-shadow: none; }
   .date-input input.color-input__short {
     width: 50px; }
-
-.date-input #amount_num {
-  width: 35px;
-  padding: 2px;
-  text-align: center; }
+  .date-input input.color-input.blue-input {
+    width: 35px;
+    padding: 2px;
+    text-align: center;
+    color: white;
+    background: #26a69a; }
+    .date-input input.color-input.blue-input__long {
+      width: 90px; }
 
 #output_primary_color,
 #output_derivate_color,

@@ -32,7 +32,7 @@ function update(picker, numblock){
 	dateG.globalMode = numblock;
 	if (dateG.globalMode) {
 		document.getElementById('output_derivate_color').style.backgroundColor = 'rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')';
-		dateG.primary_color_hsl = rgbToHsl( Math.floor(picker.rgb[0]) , Math.floor(picker.rgb[1]), Math.floor(picker.rgb[2]) );
+		dateG.delivery_color_hsl = rgbToHsl( Math.floor(picker.rgb[0]) , Math.floor(picker.rgb[1]), Math.floor(picker.rgb[2]) );
 		
 } else {
 		document.getElementById('output_primary_color').style.backgroundColor = 'rgb(' + Math.floor(picker.rgb[0]) + ',' + Math.floor(picker.rgb[1]) + ',' + Math.floor(picker.rgb[2]) + ')';
@@ -56,23 +56,43 @@ function f_setDeliveryColor() {
 		name_primary_color = $('#name_primary_color').val(),
 		name_delivery_color = $('#name_delivery_color').val(),
 		amount_num = $('#amount_num').val(),
-		derivate_color = $('#derivate_color').val();
+		derivate_color = $('#derivate_color').val(),
+		primary_color_txt = '$'+ name_primary_color +': ' + primary_color + ';';
 		
 		if (dateG.globalMode) {
+			document.getElementById('output_derivate_color').style.backgroundColor = 'hsl(' + dateG.primary_color_hsl[0] + ',' + dateG.primary_color_hsl[1] + '% ,' + dateG.primary_color_hsl[2] + '% )';
+			if(dateG.primary_color_hsl[0] == dateG.delivery_color_hsl[0] && dateG.primary_color_hsl[1] == dateG.delivery_color_hsl[1]){
+				console.log('related colors!');
 
+				var differenceAmount = dateG.primary_color_hsl[2] - dateG.delivery_color_hsl[2]
+
+				if(differenceAmount > 0 ) {
+					dateG.mode_txt = 'Darken';
+				} else if (differenceAmount < 0 ){
+					dateG.mode_txt = 'Lihgten';
+				};
+				differenceAmount = Math.abs(differenceAmount);
+				$('#outputMode').attr( 'value', dateG.mode_txt );
+				$('#outputAmount').attr( 'value', differenceAmount );
+				
+				var delivery_color_txt = '$'+ name_delivery_color +': ' + dateG.mode_txt + '( $' + name_primary_color + ', ' + differenceAmount + ' );';
+			} else{
+				var delivery_color_txt = '$'+ name_delivery_color +': ' + derivate_color + ' ;';
+			};
 		} else {
-			primary_color_txt = '$'+ name_primary_color +': ' + primary_color + ';',
-			delivery_color_txt = '$'+ name_delivery_color +': ' + dateG.mode_txt + '( $' + name_primary_color + ', ' + amount_num + ' );',
+			
+			var delivery_color_txt = '$'+ name_delivery_color +': ' + dateG.mode_txt + '( $' + name_primary_color + ', ' + amount_num + ' );';
 
 			derivate_color_h = dateG.primary_color_hsl[0];
 			derivate_color_s = dateG.primary_color_hsl[1];
 			derivate_color_l = dateG.mode ? +(amount_num) + +(dateG.primary_color_hsl[2])  : dateG.primary_color_hsl[2] - amount_num;
+			document.getElementById('output_derivate_color').style.backgroundColor = 'hsl(' + derivate_color_h + ',' + derivate_color_s + '% ,' + derivate_color_l + '% )';
 
 		}
 
 		
-	document.getElementById('output_derivate_color').style.backgroundColor = 'hsl(' + derivate_color_h + ',' + derivate_color_s + '% ,' + derivate_color_l + '% )';
-	$('#textarea').html(primary_color_txt + '\n'+ delivery_color_txt + '\nderivate_color_l = ' + derivate_color_l);
+	//document.getElementById('output_derivate_color').style.backgroundColor = 'hsl(' + derivate_color_h + ',' + derivate_color_s + '% ,' + derivate_color_l + '% )';
+	$('#textarea').html(primary_color_txt + '\n'+ delivery_color_txt);
 
 }
 

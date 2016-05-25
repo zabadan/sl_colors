@@ -68,7 +68,7 @@
 							<label id="amount_label" for="amount_num">
 								<p class="p__short">Amount</p>
 								<input type="range" id="amount-range" min="0" max="100" />
-								<input type="text" class="color-input" min="0" max="100" id="amount_num" value='50' disabled/>
+								<input type="text" class="color-input blue-input" id="amount_num" value='50' disabled/>
 							</label>
 						</div>
 
@@ -78,12 +78,12 @@
 							<label for="derivate_color">
 								<p>Derivate color</p>
 								<input id="derivate_color" class="color-input jscolor {onFineChange:'update(this, 1)',hash:true, styleElement:'output_derivate_color'}"></label>
-							<label for="" class="left">
+							<label class="left">
 								<p class="p__shorter">Mode</p>
-								<input type="text" class="color-input color-input__short" value="darken " disabled></label>
+								<input type="text" class="color-input blue-input blue-input__long" value="no mode" id="outputMode" disabled></label>
 							<label for="" class="right">
 								<p class="p__shorter">Amount</p>
-								<input type="number" class="color-input color-input__short" value="30" disabled></label>
+								<input type="text" class="color-input color-input__short blue-input" id="outputAmount" disabled></label>
 						</div>
 						<button class="btn waves-effect waves-light" type="reset" name="action">Rerset</button>
 					</div>

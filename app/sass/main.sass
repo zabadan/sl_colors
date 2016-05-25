@@ -85,7 +85,7 @@ header
 			width: 124px
 			display: inline-block
 	input
-		
+
 	.switch
 		margin: 10px 0
 	.switch label .lever
@@ -103,9 +103,7 @@ header
 		&:after
 			background-color: #9E9E9E
 			left: 26px
-	#amount_num
-		color: white
-		background: #26a69a
+	
 
 
 	input[type=range]
@@ -124,10 +122,15 @@ header
 			box-shadow: none
 		&__short
 			width: 50px
-	#amount_num
-		width: 35px
-		padding: 2px
-		text-align: center;
+		&.blue-input
+			width: 35px
+			padding: 2px
+			text-align: center
+			color: white
+			background: #26a69a
+			&__long
+				width: 90px
+
 
 
 #output_primary_color,
