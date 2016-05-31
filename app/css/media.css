@@ -5,7 +5,12 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  /**/ }
+  .date-output {
+    border-left: 0;
+    margin-left: 0; }
+  .left_col__position,
+  .right_col_position {
+    text-align: center; } }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {

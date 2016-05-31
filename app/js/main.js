@@ -30,20 +30,21 @@ function f_resetDate() {
 	$('#name_derivarive_color').val("derivarive_color") ;
 	
 	$('#mode_color').removeAttr('checked');
-	$('#amount-range').val(50);
-	$('#amount_num').val(50);
+	 //$('#amount-range').val('0');
+	 //$('#amount_num').text('50');
 
 
 	$('#derivate_color').val( '#FFFFFF' );
 	document.getElementById("derivate_color").style.backgroundColor="white";
 
-	$('#outputMode').val('no mode');
-	$('#outputAmount').val(' ');
+	//$('#outputMode').html('no mode');
+	//$('#outputAmount').val(' ');
 
 	document.getElementById("output_primary_color").style.backgroundColor="white";
 	document.getElementById("output_derivate_color").style.backgroundColor="white";
 
-	$('#textarea').val(' ');
+	$('#textarea').html('');
+	f_chanhaRange();
 }
 
 function f_copyTextToClopboard() {
