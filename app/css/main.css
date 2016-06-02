@@ -70,19 +70,25 @@ header .a-line {
 
 .date-input label {
   display: block;
-  color: black; }
+  color: black;
+  font-size: 1rem; }
   .date-input label p,
   .date-input label span {
     width: 180px;
     display: inline-block;
     margin: 10px 0; }
-  .date-input label .p__short {
-    width: 80px; }
-  .date-input label .p__shorter {
-    width: 66px; }
-  .date-input label .mode {
-    width: 124px;
-    display: inline-block; }
+
+.date-input .p__short {
+  width: 77px;
+  display: inline-block; }
+
+.date-input .p__shorter {
+  width: 66px;
+  display: inline-block; }
+
+.date-input .mode {
+  width: 124px;
+  display: inline-block; }
 
 .date-input .switch {
   margin: 10px 0; }
@@ -137,7 +143,7 @@ header .a-line {
   border: 1px solid #f3f3f3;
   background: white;
   border-radius: 5px;
-  margin-bottom: 15px; }
+  margin-bottom: 22px; }
 
 #textarea {
   box-shadow: none;
