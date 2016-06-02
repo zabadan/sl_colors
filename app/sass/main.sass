@@ -61,6 +61,7 @@ header
 	h4
 		font-size: 1.2rem
 		margin: 10px 0 15px
+		text-aligh: center
 		&:before,
 		&:after
 			content: ""
@@ -103,8 +104,6 @@ header
 			background-color: #9E9E9E
 			left: 26px
 	
-
-
 	input[type=range]
 		width: 190px
 		margin-right: 10px
@@ -129,8 +128,6 @@ header
 			background: #26a69a
 			&__long
 				width: 90px
-
-
 
 #output_primary_color,
 #output_derivate_color,
@@ -166,7 +163,8 @@ header
 .test_color_delivery
 	background: lighten(#0D3298, 50)
 	font-weight: 600
-.thumb
+
+input[type=range] + .thumb.active
 	display: none
 
 .left_col__position
@@ -174,6 +172,3 @@ header
 
 .right_col_position
 	text-align: left
-
-h4
-	text-aligh: center

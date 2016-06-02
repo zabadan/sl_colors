@@ -58,7 +58,8 @@ header .a-line {
 
 .date-input h4 {
   font-size: 1.2rem;
-  margin: 10px 0 15px; }
+  margin: 10px 0 15px;
+  text-aligh: center; }
   .date-input h4:before, .date-input h4:after {
     content: "";
     display: inline-block;
@@ -162,7 +163,7 @@ header .a-line {
   background: #acc0f8;
   font-weight: 600; }
 
-.thumb {
+input[type=range] + .thumb.active {
   display: none; }
 
 .left_col__position {
@@ -170,6 +171,3 @@ header .a-line {
 
 .right_col_position {
   text-align: left; }
-
-h4 {
-  text-aligh: center; }

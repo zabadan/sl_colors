@@ -65,24 +65,23 @@
 									<span class="mode right-align">Lighten</span>
 								</label>
 							</div>
-							<label id="amount_label" for="amount_num">
+							<p>
 								<span class="p__short">Amount</span>
 								<input type="range" id="amount-range" min="0" max="100" value='0'/>
 								<input type="text" class="color-input blue-input" id="amount_num" value='0' disabled/>
-							</label>
+							</p>
 						</div>
 
-						
 						<div class="left-align">
-<h4>Find amount</h4>
+							<h4>Find amount</h4>
 							<label for="derivate_color">
 								<span>Derivate color</span>
 								<input id="derivate_color" class="color-input jscolor {onFineChange:'update(this, 1)', hash:true}"></label>
 							<label class="left">
-								<p class="p__shorter">Mode</p>
+								<span class="p__shorter">Mode</span>
 								<input type="text" class="color-input blue-input blue-input__long" value="no mode" id="outputMode" disabled></label>
-							<label for="" class="right">
-								<p class="p__shorter">Amount</p>
+							<label for="outputAmount" class="right">
+								<span class="p__shorter">Amount</span>
 								<input type="text" class="color-input color-input__short blue-input" id="outputAmount" disabled></label>
 						</div>
 						<button class="btn waves-effect waves-light" type="reset" name="action" id="reset">Rerset</button>
@@ -105,8 +104,7 @@
 				</div>
 			</div>
 		</main>
-		<footer>
-		</footer>
+		<footer></footer>
 	</div>
 
 	<!-- build:js scripts/vendor.min.js -->
