@@ -70,7 +70,8 @@ header .a-line {
 .date-input label {
   display: block;
   color: black; }
-  .date-input label p {
+  .date-input label p,
+  .date-input label span {
     width: 180px;
     display: inline-block;
     margin: 10px 0; }
@@ -135,7 +136,7 @@ header .a-line {
   border: 1px solid #f3f3f3;
   background: white;
   border-radius: 5px;
-  margin-bottom: 10px; }
+  margin-bottom: 13px; }
 
 #textarea {
   box-shadow: none;

@@ -30,7 +30,7 @@ function f_resetDate() {
 	$('#name_derivarive_color').val("derivarive_color") ;
 	
 	$('#mode_color').removeAttr('checked');
-	 //$('#amount-range').val('0');
+	 $('#amount-range').val('0');
 	 //$('#amount_num').text('50');
 
 
